@@ -64,8 +64,8 @@ public class FilmManagerTest {
         manager.addMovie("Dawn of the dead");
         manager.addMovie("Dune 3");
 
-        String [] expected = {"Dune 3", "Dawn of the dead"};
-        String [] actual = manager.findLast(2);
+        String [] expected = {"Dune 3", "Dawn of the dead", "Fly"};
+        String [] actual = manager.findLast(3);
 
         Assertions.assertArrayEquals(expected, actual);
     }
