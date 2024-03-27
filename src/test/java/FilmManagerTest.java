@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import ru.netology.javaqa.FilmItems;
 
 public class FilmManagerTest {
-    FilmManager manager = new FilmManager();
 
     @Test
     public void shouldAddFilmsTestCase1() {
+        FilmManager manager = new FilmManager();
 
         String [] expected = {};
         String [] actual = manager.findAll();
@@ -17,6 +17,7 @@ public class FilmManagerTest {
 
     @Test
     public void shouldAddFilmsTestCase2() {
+        FilmManager manager = new FilmManager();
         manager.addMovie("Spider-man");
 
         String [] expected = {"Spider-man"};
@@ -27,6 +28,7 @@ public class FilmManagerTest {
 
     @Test
     public void shouldFindAllFilmsTestCase3() {
+        FilmManager manager = new FilmManager();
         manager.addMovie("Spider-man");
         manager.addMovie("Shining");
         manager.addMovie("Dune");
@@ -42,6 +44,7 @@ public class FilmManagerTest {
 
     @Test
     public void shouldReverseFiveFilms() {
+        FilmManager manager = new FilmManager();
         manager.addMovie("Spider-man");
         manager.addMovie("Shining");
         manager.addMovie("Dune");
@@ -57,6 +60,7 @@ public class FilmManagerTest {
 
     @Test
     public void shouldReverseThreeFilms() {
+        FilmManager manager = new FilmManager(3);
         manager.addMovie("Spider-man");
         manager.addMovie("Shining");
         manager.addMovie("Dune");
@@ -65,7 +69,7 @@ public class FilmManagerTest {
         manager.addMovie("Dune 3");
 
         String [] expected = {"Dune 3", "Dawn of the dead", "Fly"};
-        String [] actual = manager.findLast(3);
+        String [] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }

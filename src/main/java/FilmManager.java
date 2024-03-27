@@ -3,6 +3,15 @@ import ru.netology.javaqa.FilmItems;
 public class FilmManager {
 
     private String[] items = new String[0];
+    private int Limit;
+
+    public FilmManager() {
+        this.Limit = 5;
+    }
+
+    public FilmManager(int Limit) {
+        this.Limit = Limit;
+    }
 
     public void addMovie(String item) {
         String[] tmp = new String[items.length + 1];
@@ -18,20 +27,16 @@ public class FilmManager {
     }
 
     public String[] findLast() {
-        int findLastLimit = 5;
-        String[] all = findAll();
+        int findLastLimit;
+        if (items.length < Limit) {
+            findLastLimit = items.length;
+        }
+        else {
+            findLastLimit = Limit;
+        }
         String[] reversed = new String[findLastLimit];
         for (int i = 0; i < findLastLimit; i++) {
-            reversed[i] = all[all.length - 1 - i];
-            }
-        return reversed;
-    }
-
-    public String[] findLast(int findLastLimit) {
-        String[] all = findAll();
-        String[] reversed = new String[findLastLimit];
-        for (int i = 0; i < findLastLimit; i++) {
-            reversed[i] = all[all.length - 1 - i];
+            reversed[i] = items[items.length - 1 - i];
             }
         return reversed;
     }
