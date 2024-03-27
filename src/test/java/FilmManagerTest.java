@@ -4,54 +4,69 @@ import org.junit.jupiter.api.Test;
 import ru.netology.javaqa.FilmItems;
 
 public class FilmManagerTest {
-    FilmRepository repo = new FilmRepository();
-    FilmManager manager = new FilmManager(repo);
+    FilmManager manager = new FilmManager();
 
-    FilmItems item1 = new FilmItems(1, "Zombieland", "Ужасы", "img1");
-    FilmItems item2 = new FilmItems(2, "Drive", "Криминал", "img2");
-    FilmItems item3 = new FilmItems(3, "Avatar", "Научная фантастика", "img3");
-    FilmItems item4 = new FilmItems(4, "Dune", "Научная фантастика", "img4");
-    FilmItems item5 = new FilmItems(5, "Spider-Man", "Супергероика", "img5");
-    FilmItems item6 = new FilmItems(6, "Spider-Man 2", "Супергероика", "img6");
-    FilmItems item7 = new FilmItems(7, "Spider-Man 3", "Супергероика", "img7");
+    @Test
+    public void shouldAddFilmsTestCase1() {
 
-    @BeforeEach
-    public void setup() {
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        manager.add(item7);
+        String [] expected = {};
+        String [] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAddFilmsTestCase2() {
+        manager.addMovie("Spider-man");
+
+        String [] expected = {"Spider-man"};
+        String [] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindAllFilmsTestCase3() {
+        manager.addMovie("Spider-man");
+        manager.addMovie("Shining");
+        manager.addMovie("Dune");
+        manager.addMovie("Fly");
+        manager.addMovie("Dawn of the dead");
+        manager.addMovie("Dune 3");
+
+        String [] expected = {"Spider-man", "Shining", "Dune", "Fly", "Dawn of the dead", "Dune 3"};
+        String [] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldReverseFiveFilms() {
+        manager.addMovie("Spider-man");
+        manager.addMovie("Shining");
+        manager.addMovie("Dune");
+        manager.addMovie("Fly");
+        manager.addMovie("Dawn of the dead");
+        manager.addMovie("Dune 3");
 
-        FilmItems [] expected = {item7, item6, item5, item4, item3};
-        FilmItems [] actual = manager.findLast();
+        String [] expected = {"Dune 3", "Dawn of the dead", "Fly", "Dune", "Shining"};
+        String [] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldReverseThreeFilms() {
+        manager.addMovie("Spider-man");
+        manager.addMovie("Shining");
+        manager.addMovie("Dune");
+        manager.addMovie("Fly");
+        manager.addMovie("Dawn of the dead");
+        manager.addMovie("Dune 3");
 
-        FilmItems [] expected = {item7, item6, item5, item4};
-        FilmItems [] actual = manager.findLast(4);
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldFindAllFilms() {
-
-        FilmItems [] expected = {item1, item2, item3, item4, item5, item6, item7};
-        FilmItems [] actual = manager.findAll();
+        String [] expected = {"Dune 3", "Dawn of the dead"};
+        String [] actual = manager.findLast(2);
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
-
 }
