@@ -9,8 +9,8 @@ public class FilmManagerTest {
     public void shouldAddFilmsTestCase1() {
         FilmManager manager = new FilmManager();
 
-        String [] expected = {};
-        String [] actual = manager.findAll();
+        String[] expected = {};
+        String[] actual = manager.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -20,8 +20,8 @@ public class FilmManagerTest {
         FilmManager manager = new FilmManager();
         manager.addMovie("Spider-man");
 
-        String [] expected = {"Spider-man"};
-        String [] actual = manager.findAll();
+        String[] expected = {"Spider-man"};
+        String[] actual = manager.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -36,8 +36,8 @@ public class FilmManagerTest {
         manager.addMovie("Dawn of the dead");
         manager.addMovie("Dune 3");
 
-        String [] expected = {"Spider-man", "Shining", "Dune", "Fly", "Dawn of the dead", "Dune 3"};
-        String [] actual = manager.findAll();
+        String[] expected = {"Spider-man", "Shining", "Dune", "Fly", "Dawn of the dead", "Dune 3"};
+        String[] actual = manager.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -52,8 +52,8 @@ public class FilmManagerTest {
         manager.addMovie("Dawn of the dead");
         manager.addMovie("Dune 3");
 
-        String [] expected = {"Dune 3", "Dawn of the dead", "Fly", "Dune", "Shining"};
-        String [] actual = manager.findLast();
+        String[] expected = {"Dune 3", "Dawn of the dead", "Fly", "Dune", "Shining"};
+        String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -68,8 +68,8 @@ public class FilmManagerTest {
         manager.addMovie("Dawn of the dead");
         manager.addMovie("Dune 3");
 
-        String [] expected = {"Dune 3", "Dawn of the dead", "Fly"};
-        String [] actual = manager.findLast();
+        String[] expected = {"Dune 3", "Dawn of the dead", "Fly"};
+        String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
